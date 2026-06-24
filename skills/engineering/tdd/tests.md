@@ -1,11 +1,11 @@
-# Good and Bad Tests
+# 好测试与坏测试（Good and Bad Tests）
 
-## Good Tests
+## 好测试（Good Tests）
 
-**Integration-style**: Test through real interfaces, not mocks of internal parts.
+**集成风格（Integration-style）**：通过真实 interface 进行测试，而非 mock 内部组件。
 
 ```typescript
-// GOOD: Tests observable behavior
+// GOOD：测试可观察的行为
 test("user can checkout with valid cart", async () => {
   const cart = createCart();
   cart.add(product);
@@ -14,20 +14,20 @@ test("user can checkout with valid cart", async () => {
 });
 ```
 
-Characteristics:
+特征：
 
-- Tests behavior users/callers care about
-- Uses public API only
-- Survives internal refactors
-- Describes WHAT, not HOW
-- One logical assertion per test
+- 测试用户/调用者关心的行为
+- 仅使用 public API
+- 能够经受内部重构
+- 描述 WHAT（做什么），而非 HOW（怎么做）
+- 每个测试只有一个逻辑断言（assertion）
 
-## Bad Tests
+## 坏测试（Bad Tests）
 
-**Implementation-detail tests**: Coupled to internal structure.
+**实现细节测试（Implementation-detail tests）**：与内部结构强耦合。
 
 ```typescript
-// BAD: Tests implementation details
+// BAD：测试实现细节
 test("checkout calls paymentService.process", async () => {
   const mockPayment = jest.mock(paymentService);
   await checkout(cart, payment);
@@ -35,24 +35,24 @@ test("checkout calls paymentService.process", async () => {
 });
 ```
 
-Red flags:
+危险信号：
 
-- Mocking internal collaborators
-- Testing private methods
-- Asserting on call counts/order
-- Test breaks when refactoring without behavior change
-- Test name describes HOW not WHAT
-- Verifying through external means instead of interface
+- Mock 内部协作组件
+- 测试私有方法
+- 断言调用次数/顺序
+- 重构时测试中断，而行为未改变
+- 测试名称描述的是 HOW（怎么做）而非 WHAT（做什么）
+- 通过外部手段而非 interface 进行验证
 
 ```typescript
-// BAD: Bypasses interface to verify
+// BAD：绕过 interface 进行验证
 test("createUser saves to database", async () => {
   await createUser({ name: "Alice" });
   const row = await db.query("SELECT * FROM users WHERE name = ?", ["Alice"]);
   expect(row).toBeDefined();
 });
 
-// GOOD: Verifies through interface
+// GOOD：通过 interface 验证
 test("createUser makes user retrievable", async () => {
   const user = await createUser({ name: "Alice" });
   const retrieved = await getUser(user.id);

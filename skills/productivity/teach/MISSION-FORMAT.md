@@ -1,31 +1,31 @@
-# MISSION.md Format
+# MISSION.md 格式
 
-`MISSION.md` lives at the workspace root. It captures the _reason_ the user is learning this topic. Every teaching decision — what to teach next, which resources to surface, which exercises to design — should trace back to this document.
+`MISSION.md` 位于工作区根目录。它记录了用户学习这个主题的*原因*。每一个教学决策——下一步教什么、推荐哪些资源、设计哪些练习——都应追溯回这个文档。
 
-## Template
+## 模板
 
 ```md
-# Mission: {Topic}
+# 任务：{主题}
 
-## Why
-{1-3 sentences. The concrete real-world goal the user is chasing. What changes in their life or work when they have this skill? Avoid abstract framings like "to understand X" — push for the underlying outcome.}
+## 为什么
+{1-3句话。用户追逐的具体现实世界目标。当他们掌握了这项技能后，生活或工作中会发生什么变化？避免抽象表述如"为了理解X"——深入追问底层成果。}
 
-## Success looks like
-- {A specific, observable thing the user will be able to do}
-- {Another specific thing}
-- {…}
+## 成功的标志
+- {用户将能够做的具体、可观察的事情}
+- {另一个具体的事情}
+- {……}
 
-## Constraints
-- {Time, budget, prior commitments, learning preferences, anything that bounds the approach}
+## 约束条件
+- {时间、预算、先前的承诺、学习偏好，任何限制方法的东西}
 
-## Out of scope
-- {Adjacent topics the user explicitly does not want to chase right now — protects the zone of proximal development}
+## 不在此范围
+- {用户明确表示现在不想追求的邻近主题——保护最近发展区}
 ```
 
-## Rules
+## 规则
 
-- **One mission per workspace.** If the user wants to learn two unrelated things, that is two workspaces.
-- **Concrete over abstract.** "Run a half marathon by October" beats "get fitter." "Ship a Rust CLI to my team" beats "learn Rust."
-- **Push back on vagueness.** If the user cannot articulate why, interview them before writing anything. A bad mission is worse than no mission.
-- **Revise when reality shifts.** Missions change. When the user's goal moves, update this file — don't leave a stale mission steering future sessions.
-- **Keep it short.** If `MISSION.md` runs past a screen, it has stopped being a compass and started being a plan.
+- **每个工作区一个任务。** 如果用户想学习两个不相关的东西，那就是两个工作区。
+- **具体优于抽象。** "在十月份前跑完半程马拉松"胜过"变得更健康"。"向我的团队交付一个 Rust CLI"胜过"学习 Rust"。
+- **对模糊性要追问。** 如果用户无法阐明原因，在写任何东西之前先访谈他们。一个糟糕的任务比没有任务更糟。
+- **当现实变化时修订。** 任务会变。当用户的目标变化时，更新这个文件——不要让过时的任务指引未来的教学。
+- **保持简短。** 如果 `MISSION.md` 超过一屏，它就不再是指南针，而是变成了计划。

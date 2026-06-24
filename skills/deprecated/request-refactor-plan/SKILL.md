@@ -1,68 +1,68 @@
 ---
 name: request-refactor-plan
-description: Create a detailed refactor plan with tiny commits via user interview, then file it as a GitHub issue. Use when user wants to plan a refactor, create a refactoring RFC, or break a refactor into safe incremental steps.
+description: 通过用户访谈创建包含微小提交的详细重构计划，然后将其提交为 GitHub Issue。当用户想要规划重构、创建重构 RFC，或将重构拆分为安全的增量步骤时使用。
 ---
 
-This skill will be invoked when the user wants to create a refactor request. You should go through the steps below. You may skip steps if you don't consider them necessary.
+该技能在用户想要创建重构请求时被调用。你应该按照以下步骤进行。如果你认为某些步骤不必要，可以跳过。
 
-1. Ask the user for a long, detailed description of the problem they want to solve and any potential ideas for solutions.
+1. 请用户详细、长篇地描述他们想要解决的问题，以及任何潜在的解决方案思路。
 
-2. Explore the repo to verify their assertions and understand the current state of the codebase.
+2. 探索仓库以验证用户的断言，并了解代码库的当前状态。
 
-3. Ask whether they have considered other options, and present other options to them.
+3. 询问用户是否考虑过其他方案，并向他们展示其他选项。
 
-4. Interview the user about the implementation. Be extremely detailed and thorough.
+4. 与用户面谈实现细节。要做到极其详细和全面。
 
-5. Hammer out the exact scope of the implementation. Work out what you plan to change and what you plan not to change.
+5. 敲定实现的确切范围。确定你计划修改的内容和计划保持不变的内容。
 
-6. Look in the codebase to check for test coverage of this area of the codebase. If there is insufficient test coverage, ask the user what their plans for testing are.
+6. 在代码库中检查该区域是否有测试覆盖。如果测试覆盖不足，询问用户他们的测试计划是什么。
 
-7. Break the implementation into a plan of tiny commits. Remember Martin Fowler's advice to "make each refactoring step as small as possible, so that you can always see the program working."
+7. 将实现拆分为一系列微小提交。记住 Martin Fowler 的建议："让每个重构步骤尽可能小，这样你就能始终看到程序在正常工作。"
 
-8. Create a GitHub issue with the refactor plan. Use the following template for the issue description:
+8. 创建一个包含重构计划的 GitHub Issue。使用以下模板作为 Issue 描述：
 
 <refactor-plan-template>
 
-## Problem Statement
+## 问题陈述
 
-The problem that the developer is facing, from the developer's perspective.
+从开发者的角度描述开发者面临的问题。
 
-## Solution
+## 解决方案
 
-The solution to the problem, from the developer's perspective.
+从开发者的角度描述问题的解决方案。
 
-## Commits
+## 提交计划
 
-A LONG, detailed implementation plan. Write the plan in plain English, breaking down the implementation into the tiniest commits possible. Each commit should leave the codebase in a working state.
+一个**详细**的实现计划。用通俗易懂的英文编写计划，将实现拆分为尽可能小的提交。每个提交都应使代码库保持可工作状态。
 
-## Decision Document
+## 决策文档
 
-A list of implementation decisions that were made. This can include:
+一份已做出的实现决策清单。可以包括：
 
-- The modules that will be built/modified
-- The interfaces of those modules that will be modified
-- Technical clarifications from the developer
-- Architectural decisions
-- Schema changes
-- API contracts
-- Specific interactions
+- 将要构建/修改的模块
+- 将要修改的模块接口
+- 来自开发者的技术澄清
+- 架构决策
+- Schema 变更
+- API 契约
+- 特定的交互
 
-Do NOT include specific file paths or code snippets. They may end up being outdated very quickly.
+不要包含具体的文件路径或代码片段。它们可能很快就会过时。
 
-## Testing Decisions
+## 测试决策
 
-A list of testing decisions that were made. Include:
+一份已做出的测试决策清单。包括：
 
-- A description of what makes a good test (only test external behavior, not implementation details)
-- Which modules will be tested
-- Prior art for the tests (i.e. similar types of tests in the codebase)
+- 什么样的测试才算好测试的描述（只测试外部行为，不测试实现细节）
+- 哪些模块将被测试
+- 测试的参考先例（即代码库中类似类型的测试）
 
-## Out of Scope
+## 不在范围内
 
-A description of the things that are out of scope for this refactor.
+描述本次重构不涉及的内容。
 
-## Further Notes (optional)
+## 补充说明（可选）
 
-Any further notes about the refactor.
+关于重构的任何补充说明。
 
 </refactor-plan-template>
