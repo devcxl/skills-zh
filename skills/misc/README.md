@@ -1,6 +1,6 @@
 # 杂项（Misc）
 
-我保留但不常用的工具。
+我保留但不常用的工具。这些技能不对外推广。
 
 - **[git-guardrails-claude-code](./git-guardrails-claude-code/SKILL.md)** — 设置 Claude Code hooks 以阻止危险的 git 命令（push、reset --hard、clean 等）执行。
 - **[migrate-to-shoehorn](./migrate-to-shoehorn/SKILL.md)** — 将测试文件从 `as` 类型断言迁移到 @total-typescript/shoehorn。

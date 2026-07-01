@@ -13,6 +13,12 @@
 
 每个分类目录都有一个 `README.md`，列出该分类中的每个技能及其一行描述，技能名称链接到其 `SKILL.md`。Bucket `README.md` 和顶级 `README.md` 将条目分为**用户调用（User-invoked）**和**模型调用（Model-invoked）**两类。
 
-每个 `SKILL.md` 要么是用户调用（`disable-model-invocation: true`，只能由人类调用），要么是模型调用（模型或用户均可调用）。有关完整定义、描述约定，以及为什么用户调用技能可以调用模型调用技能但不能调用其他用户调用技能，请参阅 [docs/invocation.md](./docs/invocation.md)。
+每个 `SKILL.md` 要么是用户调用（`disable-model-invocation: true`，只能由人类调用），要么是模型调用（模型或用户均可调用）。有关完整定义、描述约定，以及为什么用户调用技能可以调用模型调用技能但不能调用其他用户调用技能，请参阅 [.agents/invocation.md](./.agents/invocation.md)。
+
+`.agents/` 目录包含技能本身不直接依赖的元配置和引用——调用文档、ADRs 和 `writing-docs.md`（供应用于 `/write-docs` 的子代理使用）。所有技能文档都存放在 `docs/` 下，技能可以通过类型引用它们当它们不直接位于 `skills/` 下时。
+
+`docs/engineering/` 包含技能在其提示中可能会引用的工程文档（如 `docs/engineering/tdd.md`），以跨技能保持一致——它们已在 `.claude-plugin/plugin.json` 中以 `docs:consult` 注册。
+
+`docs/productivity/` 包含编码以外的工作流，以跨技能保持一致。
 
 要（重新）将所有技能链接到本地 harness 技能目录（`~/.claude/skills`、`~/.agents/skills`），运行 `scripts/link-skills.sh`。每个条目都是指向此仓库的符号链接，因此 `git pull` 能使已安装的技能保持最新；添加、删除或重命名技能后重新运行脚本。

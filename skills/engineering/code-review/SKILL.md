@@ -1,6 +1,6 @@
 ---
-name: review
-description: 从固定点（commit、branch、tag 或 merge-base）开始，沿两条轴线审查变更——规范（代码是否遵循仓库文档化的编码规范？）和规格（代码是否与原始 issue/PRD 的要求一致？）。两条审查线在并行子 agent 中运行，并以并排方式报告结果。当用户想审查一个分支、PR、进行中的变更，或要求"从 X 开始审查"时使用。模型不自行调用。
+name: code-review
+description: 从固定点（commit、branch、tag 或 merge-base）开始，沿两条轴线审查变更——规范（代码是否遵循仓库文档化的编码规范？）和规格（代码是否与原始 issue/PRD 的要求一致？）。两条审查线在并行子 agent 中运行，并以并排方式报告结果。当用户想审查一个分支、PR、进行中的变更，或要求"从 X 开始审查"时使用。
 ---
 
 # 审查
@@ -35,14 +35,7 @@ Issue 跟踪器应该已经提供给你了——如果 `docs/agents/issue-tracke
 
 ### 3. 确定规范来源
 
-仓库中任何记载了代码应如何编写的文档。常见位置：
-
-- `CLAUDE.md`、`AGENTS.md`
-- `CONTRIBUTING.md`
-- `CONTEXT.md`、`CONTEXT-MAP.md`、各上下文的 `CONTEXT.md` 文件
-- `docs/adr/`（架构决策即规范）
-- `.editorconfig`、`eslint.config.*`、`biome.json`、`prettier.config.*`、`tsconfig.json`（工具强制执行的规范——记录下来即可，不要重复检查工具已经检查过的内容）
-- 仓库根目录或 `docs/` 下的任何 `STYLE.md`、`STANDARDS.md`、`STYLEGUIDE.md` 或类似文件
+仓库中任何记载了代码应如何编写的文档，例如 `CODING_STANDARDS.md` 或 `CONTRIBUTING.md`。
 
 除了仓库记录的内容外，规范轴线始终携带下面的**气味基线（smell baseline）**——一组来自 Fowler《重构》第 3 章的固定代码气味，即使仓库没有任何文档也适用。两条约束规则：
 
